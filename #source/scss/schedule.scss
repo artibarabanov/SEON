@@ -1,0 +1,145 @@
+$hatha: rgb(249, 181, 110);
+$chai: adjust-color($hatha, $hue: 40, $lightness: -30%);
+$chashi: adjust-color($hatha, $hue: 180);
+$meditation: adjust-color($hatha, $hue: 280, $lightness: -30%);
+
+.schedule {
+  height: 100vh;
+  padding: 10%;
+  margin-bottom: 30%;
+  @media (max-width: 700px){
+    margin-bottom: 50%;
+  }
+  &__block {
+    padding-bottom: 10%;
+    &::after {
+      content: "";
+      display: block;
+      margin: 35px auto 0 auto;
+      width: 80%;
+      height: 1px;
+      background-color: #353738;
+      transform: translateY(5vh);
+    }
+  }
+  text-align: center;
+  &::after {
+    content: "";
+    display: block;
+    margin: 35px auto 0 auto;
+    width: 80%;
+    height: 1px;
+    background-color: #353738;
+    transform: translateY(-2vh);
+  }
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100vw;
+  height: 100%;
+  border: 1px solid #ddd;
+  margin-bottom: 10%;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 3%;
+  border: 1px solid black;
+}
+td {
+  background-color: rgb(249, 230, 230);
+
+  &:hover {
+    border-bottom: 2px solid rgb(252, 195, 177);
+    box-shadow: 5px 5px 35px rgba(169, 130, 118, 0.872);
+    content: "узнать шо каво";
+    background-color: #353738;
+    color: rgb(249, 230, 230);
+  }
+}
+
+.hatha_td {
+  background-color: $hatha;
+  box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.25);
+}
+.chai_td {
+  background-color: $chai;
+  box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.25);
+  max-width: 10vw;
+}
+.chashi_td {
+  background-color: $chashi;
+  box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.25);
+}
+.meditation_td {
+  background-color: $meditation;
+  box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.25);
+}
+.month {
+  font-size: 15vw;
+  font-weight: 1000;
+  color: #353738;
+}
+
+.style {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $meditation;
+  width: 100%;
+  height: 30%;
+}
+.information {
+  font-size: 3vw;
+  text-align: center;
+  padding: 10%;
+  left: 0;
+  display: none;
+  height: 30vh;
+  box-shadow: 0 8px 10px #353738;
+  margin:auto;
+  z-index: 5;
+  @media(max-width:533px){
+    font-size: 7vw;
+  }
+}
+.information_hatha {
+  background-color: $hatha;
+}
+.information_chai {
+  background-color: $chai;}
+.information_chashi {
+  background-color: $chashi;}
+.information_meditation {
+  background-color: $meditation;}
+.closeDiv{
+  @include pwh;
+  position:fixed;
+  opacity: 60%;
+  background-color: $purple;
+  display:none;
+  z-index: 2;
+}
+.active {
+  display: block;
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  animation-name: cssAnimation;
+  animation-duration:0.3s;
+  animation-iteration-count: 1;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  from {
+    transform:  translateY(-400px);
+  }
+  to {
+    transform:  translateY(0);
+  }
+}
